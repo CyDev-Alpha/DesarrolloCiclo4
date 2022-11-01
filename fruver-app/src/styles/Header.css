@@ -1,8 +1,8 @@
 .fruver-logo {
     /*animation: App-logo-spin infinite 20s linear;*/
     float:left;
-    width:200px;
-    padding-left: 20px;
+    width: 200px;
+    padding-left: 40px;
   }
 
   .menu{
@@ -19,6 +19,8 @@
       min-height: 200px;
       padding: 14px 16px; 
       color: #244b0a;
+      line-height: 100px;
+      
     }
 
     .menu a:hover{

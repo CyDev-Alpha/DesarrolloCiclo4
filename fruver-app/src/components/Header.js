@@ -1,13 +1,14 @@
-//import { NavLink as Link } from 'react-router-dom';
+import React from 'react';
 import '../styles/Header.css';
 import {
   Nav,
   NavLink,
-  Bars,
+  //Bars,
   NavMenu,
-  NavBtn,
-  NavBtnLink,
-} from './NavbarElements';
+  //NavBtn,
+  //NavBtnLink,
+} from './elements';
+
 
 
 function Header() {
@@ -18,7 +19,6 @@ function Header() {
                 src={require('../images/fruver-logo.png')}
                 alt='Logo de Fruver'/>
         <Nav>
-        <Bars />
         <NavMenu>
           <NavLink to='/inicio' activeStyle>
             Inicio
@@ -30,16 +30,14 @@ function Header() {
             Carrito
           </NavLink>
           <NavLink to='/sesion' activeStyle>
-            Iniciar Sesion
+            Log In
           </NavLink>
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
-        <NavBtn>
-          <NavBtnLink to='/signin'>Sign In</NavBtnLink>
-        </NavBtn>
+        
       </Nav>
+      
       </div>
+      
     );
   }
   

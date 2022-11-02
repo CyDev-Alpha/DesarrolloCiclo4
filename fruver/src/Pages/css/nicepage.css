@@ -19510,8 +19510,8 @@ a.pswp__share--download:hover {
   overflow: hidden;
 }
 .u-gallery-item .u-back-slide {
-  width: 100%;
-  height: 100%;
+  width: 60%;
+  height: 60%;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -19520,7 +19520,7 @@ a.pswp__share--download:hover {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: right;
 }
 .u-show-text-none .u-over-slide {
   display: none;
@@ -19554,8 +19554,8 @@ a.pswp__share--download:hover {
 }
 .u-layout-carousel.u-gallery.u-product-zoom .u-back-slide img,
 .u-layout-thumbnails.u-gallery.u-product-zoom .u-back-slide img {
-  min-width: 120%;
-  min-height: 120%;
+  min-width: 70%;
+  min-height: 100%;
   height: auto;
   width: auto;
   opacity: 0;
@@ -19864,7 +19864,7 @@ a.pswp__share--download:hover {
 .u-layout-grid .u-gallery-inner {
   display: grid;
   grid-template-columns: repeat(3, auto);
-  min-height: 100%;
+  min-height: 70%;
 }
 .u-layout-thumbnails,
 .u-layout-carousel {

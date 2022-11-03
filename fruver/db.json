@@ -1,0 +1,37 @@
+{
+    "Frutas": [
+      {
+        "id": 1,
+        "fruit": "Manzana",
+        "type": "fuji",
+        "stock": 5,
+        "price": 2500,
+        "image": "2.png"
+      },
+      {
+        "id": 2,
+        "fruit": "Uvas",
+        "type": "xxx",
+        "stock": 20,
+        "price": 2000,
+        "image": "1.png"
+      },
+      {
+        "id": 3,
+        "fruit": "Banano",
+        "type": "xyx",
+        "stock": 50,
+        "price": 1000,
+        "image": "3.png"
+      },
+      {
+        "id": 4,
+        "fruit": "Pera",
+        "type": "xyxg",
+        "stock": 25,
+        "price": 1800,
+        "image": "4.png"
+      }
+      
+    ]
+  }

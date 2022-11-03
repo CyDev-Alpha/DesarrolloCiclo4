@@ -5,12 +5,14 @@ import {createBrowserRouter,RouterProvider,Route} from "react-router-dom";
 import Header from  './Components/header/header.js';
 import Home from './Pages/Home';
 import About from './Pages/About';
-import Productos from './Pages/Productos.js';
+import Productos from './Pages/Productos.jsx';
 import Modificar from './Pages/Modificar';
 import Ventas from './Pages/Ventas';
 import PageNotFound from './Pages/PageNotFound'
 import Footer from './Components/footer/footer.js';
 import Navigation from './Components/Navigation1.js';
+
+
 
 const router=createBrowserRouter([
   {
@@ -30,7 +32,7 @@ const router=createBrowserRouter([
     element:<Modificar/>
   },
   {
-    path:"/Ventas",
+    path:"/vetas",
     element:<Ventas/>
   }
 ])

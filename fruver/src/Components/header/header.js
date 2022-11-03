@@ -27,6 +27,7 @@ const header = () => {
                     </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Productos" style={{}}>Productos</a>
                     </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Ventas" style={{}}>Ventas</a>
                     </li></ul>
+                    
               </div>
               <div class="u-custom-menu u-nav-container-collapse">
                 <div class="u-align-center u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">

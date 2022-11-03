@@ -1,15 +1,16 @@
 import React from "react";
 import "./footer.css";
 
-const Footer = () => {
+const footer = () => {
   return (
     <div className="continer">
       <footer >
-        <h3 >Nombre Equipo</h3>
-        <h6 >Contáctenos</h6>
+        <h3 >CyDev - Alpha</h3>
+        <p >Kalix Jahier Osorio Linares; David Arias Zapata; Maira Barriga Vélez; Jefersson Guerrero Carvajal; Jhair Salgado Romero	
+        </p>
       </footer>
     </div>
   );
 };
 
-export default Footer;
+export default footer;

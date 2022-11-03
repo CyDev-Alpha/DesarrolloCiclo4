@@ -8,7 +8,7 @@ import {Button, Card,ListGroup, ListGroupItem}  from 'react-bootstrap'
 
 
 
-const Productos = (setUpdateList) => (
+const Productos = () => (
 
   
   <section className="Productos">

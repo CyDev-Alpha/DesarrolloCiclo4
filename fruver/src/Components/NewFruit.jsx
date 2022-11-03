@@ -1,14 +1,14 @@
 import axios from 'axios'
 import React, {useState} from 'react'
 import { Container, Form } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
+import {useNavigate}  from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 const NewFruit = () => {
 
-    const history = useHistory();
+    const history = useNavigate();
 
-    const [data, setData] = useState({trademark: "", model: "", reference:"", price:"", image:""})
+    const [data, setData] = useState({fruit: "", type: "", stock:"", price:"", image:""})
     
     const handleChange = ({target}) => {
         setData({
@@ -17,7 +17,7 @@ const NewFruit = () => {
         })
     }
 
-    const URL = "http://localhost:3004/Frutas"
+    const URL = "http://localhost:5000/frutas"
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,15 +40,15 @@ const NewFruit = () => {
 
     return (
         <Container>
-            <h1 className="text-center">Nueva Moto</h1>
+            <h1 className="text-center">Nueva producto</h1>
             <Form
                 onSubmit={handleSubmit}
             >
                 <Form.Group className="mb-3">
                     <Form.Control 
                         type="text"
-                        name="reference"
-                        placeholder="Referencia"
+                        name="Producto"
+                        placeholder="Producto"
                         value={data.reference}
                         onChange={handleChange}
                         required

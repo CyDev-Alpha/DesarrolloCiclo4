@@ -6,7 +6,7 @@ import Header from  './Components/header/header.js';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Productos from './Pages/Productos.jsx';
-import Modificar from './Pages/Modificar';
+import Modificar from './Pages/Modificar.jsx';
 import Ventas from './Pages/Ventas';
 import PageNotFound from './Pages/PageNotFound'
 import Footer from './Components/footer/footer.js';
@@ -46,6 +46,7 @@ function App() {
           
           <RouterProvider router={router}/>
           <Footer/>
+
       </div>
   );
 }

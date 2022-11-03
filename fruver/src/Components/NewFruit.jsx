@@ -40,7 +40,7 @@ const NewFruit = () => {
 
     return (
         <Container>
-            <h1 className="text-center">Nueva producto</h1>
+            <h1 className="text-center">Nuevo producto</h1>
             <Form
                 onSubmit={handleSubmit}
             >
@@ -58,7 +58,7 @@ const NewFruit = () => {
                     <Form.Control 
                         type="text"
                         name="model"
-                        placeholder="Modelo"
+                        placeholder="Tipo: Verdura o Fruta"
                         value={data.model}
                         onChange={handleChange}
                         required
@@ -83,19 +83,6 @@ const NewFruit = () => {
                         onChange={handleChange}
                         required
                     />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <select 
-                        className="form-control"
-                        name="trademark"
-                        onChange={handleChange}
-                        required
-                    >
-                        <option value="">Seleccione una opción</option>
-                        <option value="YAMAHA">YAMAHA</option>
-                        <option value="SUZUKI">SUZUKI</option>
-                        <option value="HONDA">HONDA</option>
-                    </select>
                 </Form.Group>
                 <button className="btn btn-success">Guardar</button>
             </Form>

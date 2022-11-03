@@ -16,6 +16,10 @@ import Navigation from './Components/Navigation1.js';
 
 const router=createBrowserRouter([
   {
+    path:"/",
+    element:<Home/>
+  },
+  {
     path:"/Home",
     element:<Home/>
   },

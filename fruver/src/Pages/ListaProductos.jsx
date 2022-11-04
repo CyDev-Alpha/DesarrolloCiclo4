@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import CardProductos from '../Pages/CardProductos';
+import ComProductos from '../Pages/ComProductos.jsx';
 import { Container, Form, Modal, Row } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
-const Productos = () => {
+const ListaProductos = () => {
 
     const URL = "http://localhost:5000/frutas"
     
@@ -61,7 +61,7 @@ const Productos = () => {
             <Row>
             {
                 list.map((NuevProducto, index) => (
-                    <CardProductos 
+                    <ComProductos 
                         key={index}
                         NuevProducto={NuevProducto}
                         setUpdateList={setUpdateList}
@@ -150,4 +150,4 @@ const Productos = () => {
     )
 }
 
-export default Productos
+export default ListaProductos

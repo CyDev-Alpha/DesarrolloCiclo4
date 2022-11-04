@@ -25,9 +25,11 @@ const header = () => {
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item"><a href="Home" >Inicio</a>
-                    </li><li class="u-nav-item"><a  href="Modificar" >Modificar</a>
-                    </li><li class="u-nav-item"><a href="Productos" >Productos</a>
-                    </li><li class="u-nav-item"><a href="Ventas" >Ventas</a>
+                    </li><li class="u-nav-item"><a  href="Modificar" >Agregar productos</a>
+                    </li><li class="u-nav-item"><a href="Productos" >Modificar productos</a>
+                    </li><li class="u-nav-item"><a href="ListaProductos" >Comprar Productos</a>
+                    </li><li class="u-nav-item"><a href="Carrito" >Mi Carrito de Compras</a>
+                    </li><li class="u-nav-item"><a href="Ventas" >Registro de Ventas</a>
                     </li></ul>
                     
               </div>

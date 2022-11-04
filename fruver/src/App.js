@@ -8,9 +8,10 @@ import About from './Pages/About';
 import Productos from './Pages/Productos.jsx';
 import Modificar from './Pages/Modificar.jsx';
 import Ventas from './Pages/Ventas';
-import PageNotFound from './Pages/PageNotFound'
+import CardProductos from './Pages/CardProductos.jsx'
 import Footer from './Components/footer/footer.js';
 import Navigation from './Components/Navigation1.js';
+import ListaProductos from './Pages/ListaProductos.jsx';
 
 
 
@@ -38,6 +39,10 @@ const router=createBrowserRouter([
   {
     path:"/vetas",
     element:<Ventas/>
+  },
+  {
+    path:"/ListaProductos",
+    element:<ListaProductos/>
   }
 ])
 

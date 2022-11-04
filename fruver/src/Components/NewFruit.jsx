@@ -8,7 +8,7 @@ const NewFruit = () => {
 
     const history = useNavigate();
 
-    const [data, setData] = useState({fruit: "", type: "", stock:"", price:"", image:""})
+    const [data, setData] = useState({fruit: "", tipo: "", stock:"", price:"", image:""})
     
     const handleChange = ({target}) => {
         setData({
@@ -47,19 +47,31 @@ const NewFruit = () => {
                 <Form.Group className="mb-3">
                     <Form.Control 
                         type="text"
-                        name="Producto"
+                        name="fruit"
                         placeholder="Producto"
-                        value={data.reference}
+                        value={data.fruit}
                         onChange={handleChange}
                         required
                     />
                 </Form.Group>
                 <Form.Group className="mb-3">
+                    <select 
+                        className="form-control"
+                        name="tipo"
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="">Seleccione una opción</option>
+                        <option value="FRUTA">FRUTA</option>
+                        <option value="VERDURA">VERDURA</option>
+                    </select>
+                </Form.Group>
+                <Form.Group className="mb-3">
                     <Form.Control 
-                        type="text"
-                        name="model"
-                        placeholder="Tipo: Verdura o Fruta"
-                        value={data.model}
+                        type="number"
+                        name="stock"
+                        placeholder="Stock"
+                        value={data.stock}
                         onChange={handleChange}
                         required
                     />

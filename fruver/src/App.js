@@ -37,7 +37,7 @@ const router=createBrowserRouter([
     element:<Modificar/>
   },
   {
-    path:"/vetas",
+    path:"/ventas",
     element:<Ventas/>
   },
   {
@@ -48,7 +48,6 @@ const router=createBrowserRouter([
 
 function App() {
   return (
-    
     
       <div className='container'>
           <Header/>

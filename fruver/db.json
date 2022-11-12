@@ -22,14 +22,16 @@
       "tipo": "xyx",
       "stock": 50,
       "price": 1000,
-      "image": "https://jumbocolombiaio.vtexassets.com/arquivos/ids/205432/116-1.jpg?v=637814200017630000"},
+      "image": "https://jumbocolombiaio.vtexassets.com/arquivos/ids/205432/116-1.jpg?v=637814200017630000"
+    },
     {
       "id": 4,
       "fruit": "Pera",
       "tipo": "xyxg",
       "stock": 25,
       "price": 1800,
-      "image": "https://www.herbazest.com/imgs/d/8/7/551784/pera.jpg"},
+      "image": "https://www.herbazest.com/imgs/d/8/7/551784/pera.jpg"
+    },
     {
       "fruit": "Manzanas",
       "stock": "10",
@@ -45,6 +47,16 @@
       "price": "12345",
       "image": "https://walmarthn.vtexassets.com/arquivos/ids/239818/Manzana-Verde-Mediana-2-Unidades-por-Lb-Aproximadamente-1-45.jpg?v=637909366065200000",
       "id": 6
+    }
+  ],
+  "Compras": [
+    {
+      "id": 1,
+      "fruta": "Frutaprueba",
+      "tipo": "tipoPrueba",
+      "cantidad": 100,
+      "valor": 7000,
+      "imagen": "https://i.blogs.es/0216cb/manzana/450_1000.webp"
     }
   ]
 }

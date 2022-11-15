@@ -58,5 +58,26 @@
       "valor": 7000,
       "imagen": "https://i.blogs.es/0216cb/manzana/450_1000.webp"
     }
+  ],
+  "Carrito":[
+    {}
+
+  ],
+  "Ventas":[
+    {
+      "Historial":[ 
+        {
+          "id":1,
+          "producto":"",
+          "tipo":"",
+          "cantidad":2,
+          "precio_unitario":2000,
+          "precio_total":4000
+
+        }
+      ]
+    }
   ]
+  
+
 }

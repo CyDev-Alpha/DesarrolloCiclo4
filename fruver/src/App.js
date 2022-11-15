@@ -12,6 +12,7 @@ import CardProductos from './Pages/CardProductos.jsx'
 import Footer from './Components/footer/footer.js';
 import Navigation from './Components/Navigation1.js';
 import ListaProductos from './Pages/ListaProductos.jsx';
+import Carrito from './Pages/Carrito';
 
 
 
@@ -43,6 +44,11 @@ const router=createBrowserRouter([
   {
     path:"/ListaProductos",
     element:<ListaProductos/>
+  },
+
+  {
+    path:"/Carrito",
+    element:<Carrito/>
   }
 ])
 

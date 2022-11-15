@@ -10,8 +10,6 @@ import Swal from 'sweetalert2'
 const ComProductos = ({ProductosCar, ProductoComp, setUpdateList, updateList, handleCloseModal, handleOpenModal, setDataModal}) => {
     //, ProductoComp
 
-    const URL = "http://localhost:5000/frutas"
-    const URL_Compras = "http://localhost:5000/compras" //esto debería servir
 
    /* const getData = async () => {           //Puede servir
         const response = axios.get(URL);
@@ -43,4 +41,6 @@ const ComProductos = ({ProductosCar, ProductoComp, setUpdateList, updateList, ha
     )
 }
 
+
 export default ComProductos
+//export default ProductosCarrito

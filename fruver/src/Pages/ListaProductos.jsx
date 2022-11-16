@@ -1,71 +1,101 @@
+// LISTA PRODUCTOS PARA CARRITO
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ComProductos from '../Pages/ComProductos.jsx';
 import { Container, Form, Modal, Row } from 'react-bootstrap';
+import {useNavigate}  from 'react-router-dom'
 import Swal from 'sweetalert2';
 
 const ListaProductos = () => {
 
+    const history = useNavigate();
+
     const URL = "http://localhost:5000/frutas"
+    const URLCompras = "http://localhost:5000/Compras"  // codigo Kalix
     
     const getData = async () => {
         const response = axios.get(URL);
         return response;
     }
 
+    const getDataCarrito = async () =>{            //Añadido por Kalix. Get en axios de Compras
+        const response = axios.get(URLCompras);
+        return response;
+    }
+
     const [list, setList] = useState([]);
+    const [listCar, setListCar] = useState([]);
     const [updateList, setUpdateList] = useState(false);
+    const [updateCar, setUpdateCar] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [dataModal, setDataModal] = useState({})
+    const [dataCompra, setDataCompra] = useState({fruta: "", tipo: "", cantidad:"", valor:"", imagen:""}) //Añadidos los props. Para post??
 
     const handleCloseModal = () => {setShowModal(false)}
     const handleOpenModal = () => {setShowModal(true)}
 
     const handleChangeModal = ({target}) => {
-        setDataModal({
-            ...dataModal,
-            [target.name]: target.value
+        setDataCompra({
+            
+            [target.name]: target.value,
+            //...dataCompra,                   //Modificado. Era  dataModal     CLAVE. SIRVE PARECE
+            fruta : dataModal.fruit,
+            tipo : dataModal.tipo,
+            //cantidad : this.dataCompra.cantidad,
+            imagen : dataModal.image
         })
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios.put(`${URL}/${dataModal.id}`, dataModal)
-        if (response.status === 200) {
+        const response = await axios.post(URLCompras,dataCompra);
+        if (response.status === 201) {
             Swal.fire(
                 'Guardado!',
-                `El registro ${response.data.reference} ha sido actualizado exitosamente!`,
+                `El registro ${response.data.reference} ha sido guardado exitosamente!`,
                 'success'
             )
-            handleCloseModal();
-            setUpdateList(!updateList)
+            //handleCloseModal();
+            //setUpdateCar(!updateCar)
+            history.push('/')    //está en el newfruit
         }else {
             Swal.fire(
                 'Error!',
-                'Hubo un problema al actualizar el registro!',
+                'Hubo un problema al crear el registro!',
                 'error'
             )
         }
     }
 
-    useEffect(() => {
+    useEffect(() => {       //No fue modificado.
         //UseEffect' Body
-        getData().then((response) => {
+        getData().then((response) => {  
             setList(response.data);
         })
-    }, [updateList])
+    }, [updateList])        
+
+
+    //Añadido por Kalix....
+
+    useEffect(() => {       // Fue añadido por Kalix. se puso los respectivos get relacionados al get de axios
+        //UseEffect' Body
+        getDataCarrito().then((response) => {
+            setListCar(response.data);
+        })
+    }, [updateCar])
 
 
     return (
         <Container className="mb-5">
             <Row>
             {
-                list.map((NuevProducto, index) => (
+                list.map((ProductosCar, index) => (
                     <ComProductos 
                         key={index}
-                        NuevProducto={NuevProducto}
+                        ProductosCar={ProductosCar}
                         setUpdateList={setUpdateList}
-                        updateList={updateList}
+                        
                         handleCloseModal= {handleCloseModal}
                         handleOpenModal = {handleOpenModal}
                         setDataModal= {setDataModal}
@@ -76,64 +106,46 @@ const ListaProductos = () => {
 
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header>
-                    <Modal.Title>Actualizar Datos</Modal.Title>
+                    <Modal.Title>Añadir a Carrito</Modal.Title>
+                    <div>
+                    <p className="name-fruit">
+                        {dataModal.fruit}
+                    </p>
+                    <p className="name-tipo">
+                        {dataModal.tipo}
+                    </p>
+                    <p className="name-stock">
+                        {dataModal.stock}
+                    </p>
+                    </div>
+                    
+
+
+                    <img src={dataModal.image} className="card-img-top image-card" /> 
+
                 </Modal.Header>
                 <Form
                     onSubmit = {handleSubmit}
                 >
                     <Modal.Body>
                     <Form.Group className="mb-3">
-                    <Form.Control 
-                        type="text"
-                        name="fruit"
-                        placeholder="Producto"
-                        value={dataModal.fruit}
-                        onChange={handleChangeModal}
-                        required
-                    />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <select 
-                        className="form-control"
-                        name="tipo"
-                        onChange={handleChangeModal}
-                        required
-                    >
-                        <option value="">Seleccione una opción</option>
-                        <option value="FRUTA">FRUTA</option>
-                        <option value="VERDURA">VERDURA</option>
-                    </select>
-                </Form.Group>
-                <Form.Group className="mb-3">
+
                     <Form.Control 
                         type="number"
-                        name="stock"
-                        placeholder="Stock"
-                        value={dataModal.stock}
+                        name="cantidad"
+                        placeholder="Cantidad"
+                        value={dataCompra.cantidad}         //Modificado. Aca iba dataModal.prop
                         onChange={handleChangeModal}
                         required
                     />
                 </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Control 
-                        type="number"
-                        name="price"
-                        placeholder="Precio"
-                        value={dataModal.price}
-                        onChange={handleChangeModal}
-                        required
-                    />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Control 
-                        type="text"
-                        name="image"
-                        placeholder="URL de la imagen"
-                        value={dataModal.image}
-                        onChange={handleChangeModal}
-                        required
-                    />
-                </Form.Group>
+
+                <div>
+                <p className="name-valor">
+                        {dataCompra.valor = dataCompra.cantidad * dataModal.price}
+                    </p>
+                </div>
+
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn btn-secondary" type="reset" onClick={handleCloseModal}>

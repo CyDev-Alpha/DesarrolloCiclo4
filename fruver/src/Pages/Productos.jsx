@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; //Hooks
 import axios from 'axios';
 import CardProductos from '../Pages/CardProductos';
 import { Container, Form, Modal, Row } from 'react-bootstrap';
@@ -8,11 +8,13 @@ const Productos = () => {
 
     const URL = "http://localhost:5000/frutas"
     
+    //Servidor axios json
     const getData = async () => {
         const response = axios.get(URL);
         return response;
     }
 
+    //Manejo de lista json para actualizar 
     const [list, setList] = useState([]);
     const [updateList, setUpdateList] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -24,10 +26,12 @@ const Productos = () => {
     const handleChangeModal = ({target}) => {
         setDataModal({
             ...dataModal,
-            [target.name]: target.value
+            [target.name]: target.value // {manzana: 2, pera: 1, granadilla: 3}
         })
     }
 
+    //Subir al servidor json por medio de ruta personalizada 
+    //
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await axios.put(`${URL}/${dataModal.id}`, dataModal)
@@ -57,6 +61,7 @@ const Productos = () => {
 
 
     return (
+        //Retorno de vista 
         <Container className="mb-5">
             <Row>
             {

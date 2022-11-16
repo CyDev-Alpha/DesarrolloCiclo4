@@ -1,7 +1,9 @@
 # DesarrolloCiclo4
 # primercommit
 
+# segundocommit
 
+<<<<<<< HEAD
 <section className="Modificar">
    
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -85,3 +87,6 @@
 
     
   </section>
+=======
+# Commit Kalix Osorio
+>>>>>>> 719a5c4d277c383bd1516aec2fcc438877967a63

@@ -1,0 +1,29 @@
+.fruver-logo {
+    /*animation: App-logo-spin infinite 20s linear;*/
+    float:left;
+    width: 300px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .menu{
+    background-color: #c2f4a1;
+    min-height: 200px;
+    padding: 0;
+    flex-direction: horizontal;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);     
+    }
+
+    .menu a{
+      min-height: 200px;
+      padding: 20px 20px; 
+      color: #244b0a;
+      line-height: 100px;
+      
+    }
+
+    .menu a:hover{
+      background-color: rgb(183, 248, 63);
+    }

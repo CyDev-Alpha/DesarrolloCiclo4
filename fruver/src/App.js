@@ -8,13 +8,11 @@ import About from './Pages/About';
 import Productos from './Pages/Productos.jsx';
 import Modificar from './Pages/Modificar.jsx';
 import Ventas from './Pages/Ventas';
-import Carrito from './Pages/Carrito';
-import CarritoProv from './Pages/CarritoProv';
 import CardProductos from './Pages/CardProductos.jsx'
 import Footer from './Components/footer/footer.js';
 import Navigation from './Components/Navigation1.js';
 import ListaProductos from './Pages/ListaProductos.jsx';
-//import ControladorCarrito2 from './Pages/ControladorCarrito2';
+import Carrito from './Pages/Carrito';
 
 
 
@@ -36,7 +34,7 @@ const router=createBrowserRouter([
     element:<Productos/>
   },
   {
-    path:"/Modificar",  
+    path:"/Modificar",
     element:<Modificar/>
   },
   {
@@ -44,19 +42,14 @@ const router=createBrowserRouter([
     element:<Ventas/>
   },
   {
-    path:"/",
-    element:<Carrito/>
-  },
-  {
     path:"/ListaProductos",
     element:<ListaProductos/>
   },
+
   {
     path:"/Carrito",
-    element:<CarritoProv/>
-      
+    element:<Carrito/>
   }
-  
 ])
 
 function App() {

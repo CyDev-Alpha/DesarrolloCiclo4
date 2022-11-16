@@ -1,69 +1,53 @@
 import React, { useEffect, useState } from 'react'; //Hooks
 import axios from 'axios';
 //import ComProductos from '../Pages/ComProductos';
-import { Container, Form, Modal, Row, Card, ListGroup, ListGroupItem, Button, Table} from 'react-bootstrap';
+import { Container, Form, Modal, Row, Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
-const URLCompras = "http://localhost:5000/Compras"
-//const URLCarrito = "http://localhost:5000/Carrito"
-const URLVentas = "http://localhost:5000/Ventas"
-const URLFrutas = "http://localhost:5000/Frutas"
+const Carrito = (ProductosCar) => {
 
-class Carrito extends React.Component {
+    const URLCompras = "http://localhost:5000/Compras"
+    const URLCarrito = "http://localhost:5000/Carrito"
+    const URLVentas = "http://localhost:5000/Ventas"
 
-    state={
-        compras:[]
-    }
     
-    componentDidMount(){
-        axios.get(URLCompras)
-        .then(response=>{
-            this.setState({
-                compras: response.data
-            })
+
+    const getDataCompras = async () => {
+        const response = axios.get(URLCompras);
+        return response;
+    }
+
+    const getDataCarrito = async () => {
+        const response = axios.get(URLCarrito);
+        return response;
+    }
+
+    const [list, setList] = useState([]);
+    const [updateList, setUpdateList] = useState(false);
+    const [dataCarrito, setDataCarrito] = useState({})
+
+    useEffect(() => {       //No fue modificado.
+        //UseEffect' Body
+        getDataCompras().then((response) => {  
+            setList(response.data);
         })
-    }
-    
-    render(){
-        return(
+    }, [updateList]) 
 
-            <React.Fragment>
-                <div className="container">
-                    <table className= "table table-hover">
-                        <thead>
-                        <tr>
-                            <th scope="col">PRODUCTO</th>
-                            <th scope="col">TIPO</th>
-                            <th scope="col">CANTIDAD</th>
-                            <th scope="col">PRECIO</th>
+    return (
+        <Container className="mb-5">
+            
+                <p>
+                    {ProductosCar.imagen}
+                    {ProductosCar.fruta}
+                    {ProductosCar.tipo}
+                    {ProductosCar.cantidad}
+                    {ProductosCar.valor}
+                </p>
 
-                        </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.compras.map((value, index) =>{
-                                return(
-                                    <tr key={index}>
-                                        <td>{value.fruta}</td>
-                                        <td>{value.tipo}</td>
-                                        <td>{value.cantidad}</td>
-                                        <td>{value.valor}</td>
-
-                                    </tr>
-
-                                )
-                            }
-                                
-                            )}
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </React.Fragment>
-        )
-    }
-     
-
-
+            
+            
+        </Container>
+    )
 
 }
 

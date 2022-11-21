@@ -1,0 +1,22 @@
+
+
+body{
+    background-image: url("../../assets/images/imagebackground.jpg");
+}
+
+.login{
+    margin-top:50px
+}
+
+
+.iconLogin{
+    margin-top:10px
+}
+
+.logo{
+    width: 50%;
+    
+}
+.titulo{
+    width: 50%;
+}

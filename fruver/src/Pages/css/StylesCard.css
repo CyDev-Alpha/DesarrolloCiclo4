@@ -1,0 +1,8 @@
+.image-card {
+    width: 50%;
+    height: 200px;
+    object-fit: scale-down;
+}
+.button span{
+    margin-right:10px ;
+}

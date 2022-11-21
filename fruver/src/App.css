@@ -51,3 +51,18 @@
   width: 850px;
   margin: 9px -14px 0 auto;
 }
+
+* {
+  font-family: Roboto;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+.home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

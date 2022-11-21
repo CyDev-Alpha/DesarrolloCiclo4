@@ -5,11 +5,10 @@ import NewFruit from '../Components/NewFruit.jsx'
 
 const Modificar = () => {
   return (
-    
     <Container >
-          <h1 className="text-center">Frutas</h1>
+          <h1 className="text-center">Fruver Master - Productos</h1>
           <NewFruit/>
-       </Container>
+    </Container>
       
 )
 }

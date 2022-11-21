@@ -8,13 +8,19 @@ import About from './Pages/About';
 import Productos from './Pages/Productos.jsx';
 import Modificar from './Pages/Modificar.jsx';
 import Ventas from './Pages/Ventas';
-import PageNotFound from './Pages/PageNotFound'
 import Footer from './Components/footer/footer.js';
-import Navigation from './Components/Navigation1.js';
+import ListaProductos from './Pages/ListaProductos.jsx';
+import Cart from "./Components/Cart/Cart.js"
+import { CartProvider } from './Components/Cart/CartContext';
+
 
 
 
 const router=createBrowserRouter([
+  {
+    path:"/",
+    element:<Home/>
+  },
   {
     path:"/Home",
     element:<Home/>
@@ -32,25 +38,31 @@ const router=createBrowserRouter([
     element:<Modificar/>
   },
   {
-    path:"/vetas",
+    path:"/Ventas",
     element:<Ventas/>
+  },
+  {
+    path:"/ListaProductos",
+    element:<ListaProductos/>
   }
 ])
 
 function App() {
   return (
     
-    
       <div className='container'>
+          <CartProvider>
           <Header/>
           
+          <br></br>        
           <RouterProvider router={router}/>
           <Footer/>
+
+          </CartProvider>
+          
 
       </div>
   );
 }
 
 export default App;
-
-

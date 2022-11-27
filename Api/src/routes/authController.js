@@ -1,7 +1,7 @@
 const authRouter = require("express").Router();
 const userSchema = require("../schemas/userSchema");
 const bcrypt = require("bcryptjs");
-const jwt = require('');
+const jwt = require('jsonwebtoken');
 
 
 //Realiza la autenticación del usuario

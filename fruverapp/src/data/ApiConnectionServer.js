@@ -1,7 +1,7 @@
 export class ApiConnectionServer{
 
     //urlServer = "https://apishopdocker.azurewebsites.net/api/";
-    urlServer = "http://localhost:80/api/";
+    urlServer = "http://localhost:4000/api/";
 
     postData(bodyData,endpoint){
         var requestData = JSON.stringify(bodyData);

@@ -4,6 +4,9 @@ const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 
 
+
+
+
 //Realiza la autenticación del usuario
 authRouter.post("/login",async (req,res)=>{
     //Tomo los datos para la autenticacion

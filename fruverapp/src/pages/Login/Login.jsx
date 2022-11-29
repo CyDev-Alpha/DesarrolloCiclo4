@@ -168,7 +168,7 @@ export class Login extends Component{
                                 {   !this.state.loading &&
                                     <Button fullWidth onClick={() => {
                                         this.doLogin()
-                                    }} variant="contained">
+                                    }} variant="contained"color="success">
                                         Log-In
                                     </Button>
                                 }

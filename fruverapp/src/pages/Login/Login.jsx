@@ -20,37 +20,43 @@ import FormControl from '@mui/material/FormControl';
 import CardMedia from '@mui/material/CardMedia';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
-
-
 import Stack from '@mui/material/Stack';
+import AlertDialog from '../../components/Dialog/AlertDialog';
 
 
 export class Login extends Component{
+
 
     state = {
         nombreusuario:'',
         password: '',
         flagPassword: false,
         loading: false,
-        validform : false
+        validform : true
     }
 
    
 
     constructor(props){
         super(props);     
+        this.showPassword = this.showPassword.bind(this)
     }
 
     apiServer = new ApiConnectionServer()
 
     //Realiza la peticion al servidor
-    doLogin(){
-      
+    doLogin(){  
+
         var serverObject ={
             username: this.state.nombreusuario,
             password: this.state.password
         }
+
+        if(serverObject.username == "" || serverObject.password == ""){
+            this.setState({validform:false})
+            return;
+        }
+
         this.setState({loading:true});
         const peticion = this.apiServer.postData(serverObject,'login');
         peticion.then((data) => {
@@ -81,6 +87,10 @@ export class Login extends Component{
         this.setState({flagPassword : !actual})
     }
 
+    changeState(){
+        this.setState({validform:true})
+    }
+
 
     handleChange = (prop) => (event) => {
         this.setState({ ...this.state, [prop]: event.target.value });
@@ -90,23 +100,42 @@ export class Login extends Component{
     render(){
         return(
             <>
-                <Card style={{ margin:'20px' }}sx={{ maxHeight: 250, display: 'flex' }}>   
+                {
+                    !this.state.validform &&
+                    <AlertDialog message="por favor coloque la información" reload={this.changeState.bind(this)} open={!this.state.validform}></AlertDialog>
+                }
+                <Card style={{ margin:'20px' }}sx={{ maxHeight: 250, display: 'flex' }}>
+                    
                     <CardMedia component="img"sx={{ width: 151}}image="images/logo_pp.jpg" alt="logo"/>
                     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
                         <CardContent sx={{backgroundColor: "none",width: 1320, alignItems: 'center' }}>
                             <h1>Tienda Virtual</h1>
                         </CardContent>
-                    </Box>                                            
+                    
+                    </Box> 
+                    
+                                                         
                 </Card>
-               
                 <Container className="login" maxWidth="sm">
                 <Card sx={{ minWidth: 275 }}>
-                <h1 style={{ margin:'20px' }} >Acceder</h1>
+                <h1 style={{ margin:'20px' }}>Login</h1>
                 <h6 style={{ margin:'20px' }}>Por favor coloque sus credenciales de acceso.</h6>
                 <CardContent>
-                <Box component="form"sx={{'& .MuiTextField-root': { m: 1, width: '100%' }}}noValidate autoComplete="off">
+                <Box
+                    component="form"
+                    sx={{
+                        '& .MuiTextField-root': { m: 1, width: '100%' }
+                    }}
+                    noValidate
+                    autoComplete="off">
                 <div>
-                    <TextField fullWidth error={this.state.nombreusuario.length > 6 ? '' : 'error'}label="Nombre de usuario"onChange={this.handleChange('nombreusuario')}defaultValue=""/>
+                    <TextField
+                        fullWidth
+                        error={this.state.nombreusuario.length > 6 ? '' : 'error'}
+                        label="Nombre de usuario"
+                        onChange={this.handleChange('nombreusuario')}
+                        defaultValue=""
+                    />
                     <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
                             <InputLabel htmlFor="outlined-adornment-password">Contraseña</InputLabel>
                             <OutlinedInput
@@ -115,7 +144,13 @@ export class Login extends Component{
                                 type={this.state.flagPassword ? 'text' : 'password'}
                                 endAdornment={
                                     <InputAdornment position="end">
-                                        <IconButton aria-label="toggle password visibility"edge="end"onClick={() =>{this.showPassword()}}>
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            edge="end"
+                                            onClick={() =>{
+                                                this.showPassword()
+                                           }}
+                                        >
                                         {!this.state.flagPassword ? <VisibilityOff /> : <Visibility />}
                                         </IconButton>
                                     </InputAdornment>
@@ -130,10 +165,19 @@ export class Login extends Component{
                 <Container maxWidth="sm">
                     <Box sx={{ width: '100%' }}>
                             <Stack spacing={2}>
-                                {!this.state.loading && <Button fullWidth onClick={() => { this.doLogin()}} variant="contained"color="success">Log-In</Button>}
-                                {this.state.loading &&<CircularProgress justifyContent="center"/>}
+                                {   !this.state.loading &&
+                                    <Button fullWidth onClick={() => {
+                                        this.doLogin()
+                                    }} variant="contained">
+                                        Log-In
+                                    </Button>
+                                }
+                                {    this.state.loading &&<CircularProgress justifyContent="center" /> }
                             
-                                <Link component="button"variant="body2">
+                                <Link
+                                    component="button"
+                                    variant="body2">
+                                    
                                     <LinkRouter to="/registro">
                                     ¿No tienes cuenta?
                                     </LinkRouter>
